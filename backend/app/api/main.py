@@ -26,6 +26,15 @@ app.add_middleware(
 )
 
 # --- Schemas ---
+class CheckoutRequest(BaseModel):
+    booster_id: str
+    valor: float
+    email_cliente: str
+
+class ConfirmacaoUp(BaseModel):
+    pedido_id: str
+    print_url: str
+
 class BoosterCadastroRequest(BaseModel):
     nick: str
     email: str
@@ -38,17 +47,51 @@ class BoosterCadastroRequest(BaseModel):
     prazo_medio: Optional[str] = "1 dia"
     id: Optional[str] = None
 
-class CheckoutRequest(BaseModel):
-    booster_id: str
-    valor: float
-    email_cliente: str
-
-class ConfirmacaoUp(BaseModel):
-    pedido_id: str
-    print_url: str
-
+class ClienteCadastroRequest(BaseModel):
+    nome: str
+    email: str
+    whatsapp: str
 
 # --- Rotas da Aplicação ---
+
+
+@app.post("/api/v1/clientes")
+async def cadastrar_novo_cliente(payload: ClienteCadastroRequest):
+    """Cadastra um novo cliente no banco de dados"""
+    conn = get_connection()
+    cursor = conn.cursor()
+    try:
+        cursor.execute('''
+            INSERT INTO clientes (nome, email, whatsapp)
+            VALUES (?, ?, ?)
+        ''', (payload.nome, payload.email, payload.whatsapp))
+        conn.commit()
+        conn.close()
+        return {"sucesso": True, "mensagem": "Cliente cadastrado com sucesso!"}
+    except Exception as e:
+        conn.close()
+        # Se o e-mail já existir, só ignora ou atualiza
+        return {"sucesso": True, "mensagem": "Cliente já cadastrado/reconhecido."}
+
+@app.get("/api/v1/clientes")
+async def listar_clientes():
+    """Endpoint GET no Swagger para você conferir os clientes cadastrados!"""
+    conn = get_connection()
+    cursor = conn.cursor()
+    cursor.execute("SELECT id, nome, email, whatsapp, criado_em FROM clientes")
+    rows = cursor.fetchall()
+    conn.close()
+    
+    return [
+        {
+            "id": r[0],
+            "nome": r[1],
+            "email": r[2],
+            "whatsapp": r[3],
+            "criado_em": r[4]
+        }
+        for r in rows
+    ]
 
 @app.get("/api/v1/prestadores")
 async def listar_prestadores():

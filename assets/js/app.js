@@ -131,6 +131,8 @@ async function carregar_prestadores_reais() {
 // ==========================================
 // HANDLERS DE CADASTRO
 // ==========================================
+
+// Handler: Cadastrar Booster
 async function cadastrar_novo_booster(event) {
   event.preventDefault();
 
@@ -149,27 +151,59 @@ async function cadastrar_novo_booster(event) {
     });
 
     const data = await res.json();
-    if (data.sucesso) {
+    if (res.ok && data.sucesso) {
       alert('Booster cadastrado com sucesso! Perfil adicionado à vitrine.');
       $('#modalCadastroBooster').modal('hide');
       document.getElementById('formCadastroBooster').reset();
       
+      // Recarrega a vitrine na hora!
       carregar_prestadores_reais();
+    } else {
+      alert(`Erro no cadastro: ${data.detail || 'Falha na resposta do servidor'}`);
     }
   } catch (err) {
-    alert('Erro ao conectar com o servidor.');
+    console.error('Erro de conexão no cadastro de booster:', err);
+    alert(`Erro ao conectar com o servidor (${API_URL}/prestadores). Verifique o console do navegador!`);
   }
 }
 
+// Handler: Cadastrar Cliente
 async function cadastrar_novo_cliente(event) {
   event.preventDefault();
 
+  const clienteNome = document.getElementById('clienteNome').value;
   const clienteEmail = document.getElementById('clienteEmail').value;
-  localStorage.setItem('cliente_email', clienteEmail);
+  const clienteWhatsapp = document.getElementById('clienteWhatsapp').value;
 
-  alert(`Cliente registrado com sucesso! E-mail [${clienteEmail}] salvo para as compras.`);
-  $('#modalCadastroCliente').modal('hide');
-  document.getElementById('formCadastroCliente').reset();
+  const payload = {
+    nome: clienteNome,
+    email: clienteEmail,
+    whatsapp: clienteWhatsapp
+  };
+
+  try {
+    const res = await fetch(`${API_URL}/clientes`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+
+    const data = await res.json();
+    
+    if (res.ok && data.sucesso) {
+      // Salva a sessão simples no localStorage para checkout rápido
+      localStorage.setItem('cliente_email', clienteEmail);
+
+      alert(`Cliente [${clienteNome}] registrado com sucesso no banco! E-mail salvo para checkout.`);
+      $('#modalCadastroCliente').modal('hide');
+      document.getElementById('formCadastroCliente').reset();
+    } else {
+      alert(`Erro: ${data.detail || 'Não foi possível cadastrar o cliente.'}`);
+    }
+  } catch (err) {
+    console.error('Erro de conexão no cadastro de cliente:', err);
+    alert('Não foi possível conectar com o backend Python.');
+  }
 }
 
 // ==========================================
