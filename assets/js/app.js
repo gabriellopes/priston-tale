@@ -54,8 +54,8 @@ function selecionar_servico(id) {
 // ==========================================
 async function carregar_componentes() {
   const componentes = [
-    'components/modal_cadastro_booster.html',
-    'components/modal_cadastro_cliente.html'
+    'pages/cadastro_booster.html',
+    'pages/cadastro_cliente.html'
   ];
 
   for (const comp of componentes) {
