@@ -74,7 +74,7 @@ const mockVendedores = [
     nick: 'SabaoDeP1k4',
     classe: 'Pike / Lutador',
     avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWwuo2jvb6xCupv5YrNpL3qtsn8C9v_YwMP45F0hNEBA&s=10',
-    avaliacao: 2.7,
+    avaliacao: 2.8,
     avaliacoesCount: 853,
     prazoMedio: '3 dias',
     precoPorNivel: 'R$ 0,65 / nível',
