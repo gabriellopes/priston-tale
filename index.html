@@ -1,204 +1,246 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PT XP Express - Marketplace Priston Tale</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="assets/css/custom.css">
-<body>
+  <!DOCTYPE html>
+  <html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PT XP Express - Marketplace Priston Tale</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/custom.css">
+  <body>
 
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom border-dark-custom sticky-top">
-    <div class="container">
-      <a class="navbar-brand font-weight-bold text-gold" href="#">⚔️ PT XP EXPRESS</a>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav mx-auto">
-          <li class="nav-item"><a class="nav-link text-light" href="#">Início</a></li>
-          <li class="nav-item"><a class="nav-link text-muted" href="#como-funciona">Como Funciona</a></li>
-          <li class="nav-item"><a class="nav-link text-muted" href="#servicos">Serviços</a></li>
-          <li class="nav-item"><a class="nav-link text-muted" href="#vendedores">Vendedores</a></li>
-          <li class="nav-item"><a class="nav-link text-muted" href="#">Segurança</a></li>
-        </ul>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom border-dark-custom sticky-top">
+      <div class="container">
+        <a class="navbar-brand font-weight-bold text-gold" href="#">⚔️ PT XP EXPRESS</a>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item"><a class="nav-link text-light" href="#">Início</a></li>
+            <li class="nav-item"><a class="nav-link text-muted" href="#como-funciona">Como Funciona</a></li>
+            <li class="nav-item"><a class="nav-link text-muted" href="#servicos">Serviços</a></li>
+            <li class="nav-item"><a class="nav-link text-muted" href="#vendedores">Vendedores</a></li>
+            <li class="nav-item"><a class="nav-link text-muted" href="#">Segurança</a></li>
+          </ul>
+        </div>
+        <div>
+          <button class="btn btn-sm btn-outline-light mr-2">Entrar</button>
+          <button class="btn btn-sm btn-gold">Cadastrar</button>
+          <button class="btn btn-sm btn-outline-gold ml-2">
+            🛒 <span id="cartBadge" class="badge badge-warning">0</span>
+          </button>
+        </div>
       </div>
-      <div>
-        <button class="btn btn-sm btn-outline-light mr-2">Entrar</button>
-        <button class="btn btn-sm btn-gold">Cadastrar</button>
-        <button class="btn btn-sm btn-outline-gold ml-2">
-          🛒 <span id="cartBadge" class="badge badge-warning">0</span>
-        </button>
-      </div>
-    </div>
-  </nav>
+    </nav>
 
-  <!-- Hero Section + Calculadora Estilo Passagens -->
-  <header class="hero-banner">
-    <div class="container">
-      <div class="row align-items-center">
-        <!-- Banner Texto -->
-        <div class="col-lg-6 mb-4 mb-lg-0">
-          <h1 class="display-4 font-weight-bold">Evolua no <span class="text-gold">Priston Tale</span> sem esforço!</h1>
-          <p class="lead text-muted my-3">
-            Compre XP com segurança e praticidade. Nós intermediamos, jogadores dedicados upam seu personagem.
-          </p>
-          <div>
-            <a href="#calculadora" class="btn btn-gold btn-lg mr-2 font-weight-bold">⚡ Quero upar agora</a>
-            <a href="#como-funciona" class="btn btn-outline-light btn-lg">Como funciona</a>
+    <!-- Hero Section + Calculadora Estilo Passagens -->
+    <header class="hero-banner">
+      <div class="container">
+        <div class="row align-items-center">
+          <!-- Banner Texto -->
+          <div class="col-lg-6 mb-4 mb-lg-0">
+            <h1 class="display-4 font-weight-bold">Evolua no <span class="text-gold">Priston Tale</span> sem esforço!</h1>
+            <p class="lead text-muted my-3">
+              Compre XP com segurança e praticidade. Nós intermediamos, jogadores dedicados upam seu personagem.
+            </p>
+            <div>
+              <a href="#calculadora" class="btn btn-gold btn-lg mr-2 font-weight-bold">⚡ Quero upar agora</a>
+              <a href="#como-funciona" class="btn btn-outline-light btn-lg">Como funciona</a>
+            </div>
+          </div>
+
+          <!-- Calculadora de Serviços -->
+          <div class="col-lg-6" id="calculadora">
+            <div class="card bg-card p-4 rounded-lg shadow-lg">
+              <h5 class="font-weight-bold mb-3 text-gold">Calcule seu serviço</h5>
+              
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label class="small text-muted">Servidor</label>
+                  <select class="form-control bg-dark text-light border-dark-custom">
+                    <option>IDHAS (BPT)</option>
+                    <option>CRONUS</option>
+                    <option>AWELL</option>
+                    <option>PRISTON PRIVATE</option>
+                  </select>
+                </div>
+                <div class="form-group col-md-6">
+                  <label class="small text-muted">Personagem / Classe</label>
+                  <select class="form-control bg-dark text-light border-dark-custom">
+                    <option>Sacerdotisa</option>
+                    <option>Mago</option>
+                    <option>Lutador</option>
+                    <option>Pike</option>
+                    <option>Atalanta</option>
+                    <option>Cavaleiro</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label class="small text-muted">Do nível</label>
+                  <input type="number" id="doNivel" class="form-control bg-dark text-light border-dark-custom" value="40">
+                </div>
+                <div class="form-group col-md-6">
+                  <label class="small text-muted">Até o nível</label>
+                  <input type="number" id="ateNivel" class="form-control bg-dark text-light border-dark-custom" value="80">
+                </div>
+              </div>
+
+              <label class="small text-muted mb-2">Prazo de Entrega</label>
+              <div class="row no-gutters mb-3">
+                <div class="col-4 pr-1">
+                  <div class="option-btn active" data-fator="1.0">
+                    <div class="small font-weight-bold">Padrão</div>
+                    <div class="small text-muted">7 dias</div>
+                  </div>
+                </div>
+                <div class="col-4 px-1">
+                  <div class="option-btn" data-fator="1.3">
+                    <div class="small font-weight-bold text-gold">⚡ Expresso</div>
+                    <div class="small text-muted">3 dias</div>
+                  </div>
+                </div>
+                <div class="col-4 pl-1">
+                  <div class="option-btn" data-fator="1.6">
+                    <div class="small font-weight-bold text-danger">🚀 Turbo</div>
+                    <div class="small text-muted">1 dia</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="d-flex justify-content-between align-items-center border-top border-dark-custom pt-3 mt-2">
+                <div>
+                  <span class="small text-muted d-block">Total estimado</span>
+                  <h3 class="font-weight-bold text-gold mb-0" id="valorEstimado">R$ 140,00</h3>
+                </div>
+                <button id="btnAdicionar" class="btn btn-gold px-4 py-2" onclick="adicionarAoCarrinho()">
+                  Ver vendedores disponíveis
+                </button>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Badges de Garantia -->
+    <section class="py-4 border-top border-bottom border-dark-custom bg-card">
+      <div class="container">
+        <div class="row text-center">
+          <div class="col-md-3 mb-2 mb-md-0">🛡️ <strong>100% Seguro</strong> <br><small class="text-muted">Intermediação total</small></div>
+          <div class="col-md-3 mb-2 mb-md-0">💳 <strong>Pagamento Retido</strong> <br><small class="text-muted">Garantia da plataforma</small></div>
+          <div class="col-md-3 mb-2 mb-md-0">💬 <strong>Suporte 24h</strong> <br><small class="text-muted">Atendimento rápido</small></div>
+          <div class="col-md-3">⭐ <strong>Avaliações Reais</strong> <br><small class="text-muted">De compradores</small></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="como-funciona" class="py-5">
+      <div class="container">
+        <h2 class="text-center font-weight-bold mb-2">Como funciona? É <span class="text-gold">simples como um app!</span></h2>
+        <p class="text-center text-muted mb-5">Do pedido até o level desejado com transparência total.</p>
+        
+        <div class="row text-center">
+          <div class="col-md-2 mb-4 mx-auto">
+            <div class="display-4 text-gold mb-2">🛒</div>
+            <h6 class="font-weight-bold">1. Escolha seu serviço</h6>
+            <p class="small text-muted">Selecione servidor, classe e níveis.</p>
+          </div>
+          <div class="col-md-2 mb-4 mx-auto">
+            <div class="display-4 text-gold mb-2">📋</div>
+            <h6 class="font-weight-bold">2. Compare vendedores</h6>
+            <p class="small text-muted">Veja avaliações, preços e prazos.</p>
+          </div>
+          <div class="col-md-2 mb-4 mx-auto">
+            <div class="display-4 text-gold mb-2">💳</div>
+            <h6 class="font-weight-bold">3. Faça seu pedido</h6>
+            <p class="small text-muted">Pagamento retido com segurança.</p>
+          </div>
+          <div class="col-md-2 mb-4 mx-auto">
+            <div class="display-4 text-gold mb-2">⚡</div>
+            <h6 class="font-weight-bold">4. Vendedor realiza o up</h6>
+            <p class="small text-muted">Acompanhe a evolução noitinha.</p>
+          </div>
+          <div class="col-md-2 mb-4 mx-auto">
+            <div class="display-4 text-gold mb-2">🏁</div>
+            <h6 class="font-weight-bold">5. Serviço concluído</h6>
+            <p class="small text-muted">Você recebe seu char e avalia.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Serviços Mais Pedidos -->
+    <section id="servicos" class="py-5 bg-card border-top border-bottom border-dark-custom">
+      <div class="container">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+          <h3 class="font-weight-bold mb-0">Serviços mais pedidos</h3>
+          <a href="#" class="text-gold small">Ver todos ➔</a>
+        </div>
+        <!-- Renderizado via JS -->
+        <div class="row" id="grid-servicos"></div>
+      </div>
+    </section>
+
+    <!-- Vendedores em Destaque -->
+    <section id="vendedores" class="py-5">
+      <div class="container">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+          <h3 class="font-weight-bold mb-0">Vendedores em destaque</h3>
+          <a href="#" class="text-gold small">Ver todos os boosters ➔</a>
+        </div>
+        <!-- Renderizado via JS -->
+        <div class="row" id="grid-vendedores"></div>
+      </div>
+    </section>
+    <!-- Seção Chamativa: Sou Booster / Quero ser Upado -->
+  <section class="py-5 bg-darker border-top border-bottom border-dark-custom my-5">
+    <div class="container text-center py-3">
+      <h2 class="font-weight-bold text-light mb-3">
+        Qual é o seu objetivo no Priston hoje?
+      </h2>
+      <p class="text-muted mb-4">Escolha seu lado na jornada e garanta as melhores transações com total segurança em custódia.</p>
+
+      <div class="row justify-content-center align-items-center mt-4">
+        
+        <!-- Card Sou Booster -->
+        <div class="col-md-5 mb-3 mb-md-0">
+          <div class="card bg-card border-gold p-4 h-100 d-flex flex-column justify-content-between align-items-center">
+            <div>
+              <span class="display-4 d-block mb-2">🚀</span>
+              <h3 class="font-weight-bold text-gold mb-2">Sou Booster</h3>
+              <p class="text-muted small">Faça renda extra jogando! Cadastre-se como prestador e receba seus pagamentos direto via Pix com total garantia.</p>
+            </div>
+            <button class="btn btn-gold btn-lg btn-block font-weight-bold mt-3" data-toggle="modal" data-target="#modalCadastroBooster">
+              Quero Acelerar Contas ⚡
+            </button>
           </div>
         </div>
 
-        <!-- Calculadora de Serviços -->
-        <div class="col-lg-6" id="calculadora">
-          <div class="card bg-card p-4 rounded-lg shadow-lg">
-            <h5 class="font-weight-bold mb-3 text-gold">Calcule seu serviço</h5>
-            
-            <div class="form-row">
-              <div class="form-group col-md-6">
-                <label class="small text-muted">Servidor</label>
-                <select class="form-control bg-dark text-light border-dark-custom">
-                  <option>IDHAS (BPT)</option>
-                  <option>CRONUS</option>
-                  <option>AWELL</option>
-                  <option>PRISTON PRIVATE</option>
-                </select>
-              </div>
-              <div class="form-group col-md-6">
-                <label class="small text-muted">Personagem / Classe</label>
-                <select class="form-control bg-dark text-light border-dark-custom">
-                  <option>Sacerdotisa</option>
-                  <option>Mago</option>
-                  <option>Lutador</option>
-                  <option>Pike</option>
-                  <option>Atalanta</option>
-                  <option>Cavaleiro</option>
-                </select>
-              </div>
+        <!-- Card Quero ser Upado -->
+        <div class="col-md-5">
+          <div class="card bg-card border-dark-custom p-4 h-100 d-flex flex-column justify-content-between align-items-center">
+            <div>
+              <span class="display-4 d-block mb-2">🎮</span>
+              <h3 class="font-weight-bold text-light mb-1">Quero ser upado!!</h3>
+              <span class="d-block text-muted font-italic mb-2" style="font-size: 0.75rem;">(Lá ele...)</span>
+              <p class="text-muted small">Sem tempo para o grind? Contrate boosters verificados e acompanhe a evolução do seu personagem sem dor de cabeça.</p>
             </div>
-
-            <div class="form-row">
-              <div class="form-group col-md-6">
-                <label class="small text-muted">Do nível</label>
-                <input type="number" id="doNivel" class="form-control bg-dark text-light border-dark-custom" value="40">
-              </div>
-              <div class="form-group col-md-6">
-                <label class="small text-muted">Até o nível</label>
-                <input type="number" id="ateNivel" class="form-control bg-dark text-light border-dark-custom" value="80">
-              </div>
-            </div>
-
-            <label class="small text-muted mb-2">Prazo de Entrega</label>
-            <div class="row no-gutters mb-3">
-              <div class="col-4 pr-1">
-                <div class="option-btn active" data-fator="1.0">
-                  <div class="small font-weight-bold">Padrão</div>
-                  <div class="small text-muted">7 dias</div>
-                </div>
-              </div>
-              <div class="col-4 px-1">
-                <div class="option-btn" data-fator="1.3">
-                  <div class="small font-weight-bold text-gold">⚡ Expresso</div>
-                  <div class="small text-muted">3 dias</div>
-                </div>
-              </div>
-              <div class="col-4 pl-1">
-                <div class="option-btn" data-fator="1.6">
-                  <div class="small font-weight-bold text-danger">🚀 Turbo</div>
-                  <div class="small text-muted">1 dia</div>
-                </div>
-              </div>
-            </div>
-
-            <div class="d-flex justify-content-between align-items-center border-top border-dark-custom pt-3 mt-2">
-              <div>
-                <span class="small text-muted d-block">Total estimado</span>
-                <h3 class="font-weight-bold text-gold mb-0" id="valorEstimado">R$ 140,00</h3>
-              </div>
-              <button id="btnAdicionar" class="btn btn-gold px-4 py-2" onclick="adicionarAoCarrinho()">
-                Ver vendedores disponíveis
-              </button>
-            </div>
-
+            <button class="btn btn-outline-gold btn-lg btn-block font-weight-bold mt-3" data-toggle="modal" data-target="#modalCadastroCliente">
+              Criar Conta de Cliente 🛡️
+            </button>
           </div>
         </div>
-      </div>
-    </div>
-  </header>
 
-  <!-- Badges de Garantia -->
-  <section class="py-4 border-top border-bottom border-dark-custom bg-card">
-    <div class="container">
-      <div class="row text-center">
-        <div class="col-md-3 mb-2 mb-md-0">🛡️ <strong>100% Seguro</strong> <br><small class="text-muted">Intermediação total</small></div>
-        <div class="col-md-3 mb-2 mb-md-0">💳 <strong>Pagamento Retido</strong> <br><small class="text-muted">Garantia da plataforma</small></div>
-        <div class="col-md-3 mb-2 mb-md-0">💬 <strong>Suporte 24h</strong> <br><small class="text-muted">Atendimento rápido</small></div>
-        <div class="col-md-3">⭐ <strong>Avaliações Reais</strong> <br><small class="text-muted">De compradores</small></div>
       </div>
     </div>
   </section>
 
-  <section id="como-funciona" class="py-5">
-    <div class="container">
-      <h2 class="text-center font-weight-bold mb-2">Como funciona? É <span class="text-gold">simples como um app!</span></h2>
-      <p class="text-center text-muted mb-5">Do pedido até o level desejado com transparência total.</p>
-      
-      <div class="row text-center">
-        <div class="col-md-2 mb-4 mx-auto">
-          <div class="display-4 text-gold mb-2">🛒</div>
-          <h6 class="font-weight-bold">1. Escolha seu serviço</h6>
-          <p class="small text-muted">Selecione servidor, classe e níveis.</p>
-        </div>
-        <div class="col-md-2 mb-4 mx-auto">
-          <div class="display-4 text-gold mb-2">📋</div>
-          <h6 class="font-weight-bold">2. Compare vendedores</h6>
-          <p class="small text-muted">Veja avaliações, preços e prazos.</p>
-        </div>
-        <div class="col-md-2 mb-4 mx-auto">
-          <div class="display-4 text-gold mb-2">💳</div>
-          <h6 class="font-weight-bold">3. Faça seu pedido</h6>
-          <p class="small text-muted">Pagamento retido com segurança.</p>
-        </div>
-        <div class="col-md-2 mb-4 mx-auto">
-          <div class="display-4 text-gold mb-2">⚡</div>
-          <h6 class="font-weight-bold">4. Vendedor realiza o up</h6>
-          <p class="small text-muted">Acompanhe a evolução noitinha.</p>
-        </div>
-        <div class="col-md-2 mb-4 mx-auto">
-          <div class="display-4 text-gold mb-2">🏁</div>
-          <h6 class="font-weight-bold">5. Serviço concluído</h6>
-          <p class="small text-muted">Você recebe seu char e avalia.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Serviços Mais Pedidos -->
-  <section id="servicos" class="py-5 bg-card border-top border-bottom border-dark-custom">
-    <div class="container">
-      <div class="d-flex justify-content-between align-items-center mb-4">
-        <h3 class="font-weight-bold mb-0">Serviços mais pedidos</h3>
-        <a href="#" class="text-gold small">Ver todos ➔</a>
-      </div>
-      <!-- Renderizado via JS -->
-      <div class="row" id="grid-servicos"></div>
-    </div>
-  </section>
-
-  <!-- Vendedores em Destaque -->
-  <section id="vendedores" class="py-5">
-    <div class="container">
-      <div class="d-flex justify-content-between align-items-center mb-4">
-        <h3 class="font-weight-bold mb-0">Vendedores em destaque</h3>
-        <a href="#" class="text-gold small">Ver todos os boosters ➔</a>
-      </div>
-      <!-- Renderizado via JS -->
-      <div class="row" id="grid-vendedores"></div>
-    </div>
-  </section>
-  
-  <!-- Scripts -->
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/js/mock-data.js"></script>
-  <script src="assets/js/app.js"></script></head>
-</body>
-</html>
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/mock-data.js"></script>
+    <script src="assets/js/app.js"></script></head>
+  </body>
+  </html>
