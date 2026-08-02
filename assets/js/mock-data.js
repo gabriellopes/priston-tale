@@ -71,17 +71,6 @@ const mockVendedores = [
   },
   {
     id: 'vendedor-4',
-    nick: 'OldSchoolPT',
-    classe: 'Lutador / Arqueira',
-    avatar: 'https://images.unsplash.com/photo-1527980965255-d3b416303d12?auto=format&fit=crop&w=150&q=80',
-    avaliacao: 4.9,
-    avaliacoesCount: 152,
-    prazoMedio: '2 dias',
-    precoPorNivel: 'R$ 0,58 / nível',
-    verificado: true
-  },
-  {
-    id: 'vendedor-5',
     nick: 'SabaoDeP1k4',
     classe: 'Pike / Lutador',
     avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWwuo2jvb6xCupv5YrNpL3qtsn8C9v_YwMP45F0hNEBA&s=10',
