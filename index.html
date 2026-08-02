@@ -6,7 +6,6 @@
   <title>PT XP Express - Marketplace Priston Tale</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="assets/css/custom.css">
-</head>
 <body>
 
   <!-- Navbar -->
@@ -137,9 +136,69 @@
     </div>
   </section>
 
+  <section id="como-funciona" class="py-5">
+    <div class="container">
+      <h2 class="text-center font-weight-bold mb-2">Como funciona? É <span class="text-gold">simples como um app!</span></h2>
+      <p class="text-center text-muted mb-5">Do pedido até o level desejado com transparência total.</p>
+      
+      <div class="row text-center">
+        <div class="col-md-2 mb-4 mx-auto">
+          <div class="display-4 text-gold mb-2">🛒</div>
+          <h6 class="font-weight-bold">1. Escolha seu serviço</h6>
+          <p class="small text-muted">Selecione servidor, classe e níveis.</p>
+        </div>
+        <div class="col-md-2 mb-4 mx-auto">
+          <div class="display-4 text-gold mb-2">📋</div>
+          <h6 class="font-weight-bold">2. Compare vendedores</h6>
+          <p class="small text-muted">Veja avaliações, preços e prazos.</p>
+        </div>
+        <div class="col-md-2 mb-4 mx-auto">
+          <div class="display-4 text-gold mb-2">💳</div>
+          <h6 class="font-weight-bold">3. Faça seu pedido</h6>
+          <p class="small text-muted">Pagamento retido com segurança.</p>
+        </div>
+        <div class="col-md-2 mb-4 mx-auto">
+          <div class="display-4 text-gold mb-2">⚡</div>
+          <h6 class="font-weight-bold">4. Vendedor realiza o up</h6>
+          <p class="small text-muted">Acompanhe a evolução noitinha.</p>
+        </div>
+        <div class="col-md-2 mb-4 mx-auto">
+          <div class="display-4 text-gold mb-2">🏁</div>
+          <h6 class="font-weight-bold">5. Serviço concluído</h6>
+          <p class="small text-muted">Você recebe seu char e avalia.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Serviços Mais Pedidos -->
+  <section id="servicos" class="py-5 bg-card border-top border-bottom border-dark-custom">
+    <div class="container">
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <h3 class="font-weight-bold mb-0">Serviços mais pedidos</h3>
+        <a href="#" class="text-gold small">Ver todos ➔</a>
+      </div>
+      <!-- Renderizado via JS -->
+      <div class="row" id="grid-servicos"></div>
+    </div>
+  </section>
+
+  <!-- Vendedores em Destaque -->
+  <section id="vendedores" class="py-5">
+    <div class="container">
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <h3 class="font-weight-bold mb-0">Vendedores em destaque</h3>
+        <a href="#" class="text-gold small">Ver todos os boosters ➔</a>
+      </div>
+      <!-- Renderizado via JS -->
+      <div class="row" id="grid-vendedores"></div>
+    </div>
+  </section>
+  
   <!-- Scripts -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/js/app.js"></script>
+  <script src="assets/js/mock-data.js"></script>
+  <script src="assets/js/app.js"></script></head>
 </body>
 </html>
