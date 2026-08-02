@@ -118,6 +118,63 @@ function selecionarServico(id) {
   document.getElementById('calculadora').scrollIntoView({ behavior: 'smooth' });
 }
 
-function contratarVendedor(nick) {
-  alert(`Você selecionou o booster ${nick}! Vamos direcionar para o checkout em breve.`);
+// URL do Backend Python (Muda automaticamente entre local e prod se necessário)
+const API_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
+  ? 'http://127.0.0.1:8000/api/v1'
+  : 'https://seu-backend.onrender.com/api/v1'; // URL futura de prod
+
+async function contratarVendedor(nickBooster) {
+  try {
+    // Abrir Modal com status de carregamento
+    $('#pixModal').modal('show');
+    document.getElementById('pixLoading').classList.remove('d-none');
+    document.getElementById('pixContent').classList.add('d-none');
+
+    // Pegar valores da calculadora ou definir R$ 0.01 para o teste
+    const payload = {
+      booster_id: nickBooster,
+      valor: 0.01, // Teste do Pix Real
+      email_cliente: "cliente@priston.com"
+    };
+
+    const response = await fetch(`${API_URL}/checkout`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+
+    const data = await response.json();
+
+    if (data.sucesso) {
+      // Exibir QR Code e Código 'Copia e Cola'
+      document.getElementById('qrCodeImg').src = `data:image/png;base64,${data.qr_code_base64}`;
+      document.getElementById('pixCopiaCola').value = data.qr_code;
+      
+      // Salva ID da transação para polling de status
+      iniciarPollingPagamento(data.pagamento_id);
+
+      document.getElementById('pixLoading').classList.add('d-none');
+      document.getElementById('pixContent').classList.remove('d-none');
+    } else {
+      alert('Erro ao gerar PIX. Verifique os logs do backend.');
+    }
+  } catch (error) {
+    console.error('Erro na requisição:', error);
+    alert('Não foi possível conectar com o servidor Python. O Uvicorn está rodando?');
+  }
+}
+
+function copiarPix() {
+  const copyText = document.getElementById("pixCopiaCola");
+  copyText.select();
+  document.execCommand("copy");
+  alert("Código Pix copiado para a área de transferência!");
+}
+
+// Verifica se o pagamento em custódia foi concluído
+function iniciarPollingPagamento(paymentId) {
+  const interval = setInterval(async () => {
+    // Aqui bate numa rota de status do backend
+    // Quando o Webhook mudar para RETIDO_EM_CUSTODIA -> Redireciona!
+  }, 3000);
 }
