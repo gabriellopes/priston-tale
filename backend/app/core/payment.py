@@ -5,9 +5,12 @@ class MercadoPagoService:
         self.sdk = mercadopago.SDK(access_token)
 
     def criar_pix_custodia(self, valor: float, descricao: str, email_cliente: str):
-        """Gera o QR Code Pix para o teste de R$ 0,01"""
+        # ⚠️ APENAS PARA A PROVA DE FOGO: Força R$ 0,01 na chamada da API
+        # Em produção final, é só trocar por: valor_transacao = float(valor)
+        valor = 0.01
+
         payment_data = {
-            "transaction_amount": float(valor),
+            "transaction_amount": valor,
             "description": descricao,
             "payment_method_id": "pix",
             "payer": {
@@ -28,4 +31,4 @@ class MercadoPagoService:
                 "qr_code_base64": payment["point_of_interaction"]["transaction_data"]["qr_code_base64"]
             }
         else:
-            raise Exception(f"Erro ao gerar PIX: {result}")
+            raise Exception(f"Erro ao gerar PIX no Mercado Pago: {result}")

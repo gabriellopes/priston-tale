@@ -1,0 +1,36 @@
+<div class="modal fade" id="modalCadastroBooster" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content bg-card text-light border-dark-custom">
+      <div class="modal-header border-dark-custom">
+        <h5 class="modal-header-title font-weight-bold text-gold">⚡ Torne-se um Booster PT XP</h5>
+        <button type="button" class="close text-light" data-dismiss="modal" aria-label="Fechar">&times;</button>
+      </div>
+      <div class="modal-body p-4">
+        <form id="formCadastroBooster" onsubmit="cadastrar_novo_booster(event)">
+          <div class="form-group">
+            <label class="small text-muted">Nick do Personagem / Booster</label>
+            <input type="text" id="boosterNick" class="form-control bg-dark text-light border-dark-custom" placeholder="ex: UpaNoturno" required>
+          </div>
+          <div class="form-group">
+            <label class="small text-muted">E-mail de Contato</label>
+            <input type="email" id="boosterEmail" class="form-control bg-dark text-light border-dark-custom" placeholder="seu@email.com" required>
+          </div>
+          <div class="form-group">
+            <label class="small text-muted">WhatsApp (com DDD)</label>
+            <input type="tel" id="boosterWhatsapp" class="form-control bg-dark text-light border-dark-custom" placeholder="5511999999999" required>
+          </div>
+          <div class="form-group">
+            <label class="small text-muted">Sua Classe Principal</label>
+            <select id="boosterClasse" class="form-control bg-dark text-light border-dark-custom" required>
+              <option value="Pike / Lutador">Pike / Lutador</option>
+              <option value="Mago / Sacerdotisa">Mago / Sacerdotisa</option>
+              <option value="Atalanta / Cavaleiro">Atalanta / Cavaleiro</option>
+              <option value="Arqueira / Ranged">Arqueira / Ranged</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-gold btn-block font-weight-bold mt-4">Concluir Cadastro de Booster</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
