@@ -1,0 +1,64 @@
+<!-- Modal Auth Unificado (Login / Cadastro) -->
+<div class="modal fade" id="modalAuth" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content bg-card text-light border-dark-custom">
+      <div class="modal-header border-dark-custom">
+        <h5 class="modal-header-title font-weight-bold text-gold" id="authTitle">🛡️ Entrar ou Cadastrar</h5>
+        <button type="button" class="close text-light" data-dismiss="modal" aria-label="Fechar">&times;</button>
+      </div>
+
+      <div class="modal-body p-4">
+        
+        <!-- VISÃO 1: Escolha de Perfil (Cadastrar) -->
+        <div id="authStepChoice">
+          <p class="text-center text-muted small mb-4">Escolha como deseja se registrar na plataforma:</p>
+          <div class="row text-center">
+            <div class="col-6 mb-3">
+              <button class="btn btn-outline-gold btn-block py-3 font-weight-bold" onclick="abrirModalForm('booster')">
+                <span class="display-4 d-block mb-1">🚀</span>
+                Sou Booster
+              </button>
+            </div>
+            <div class="col-6 mb-3">
+              <button class="btn btn-outline-light btn-block py-3 font-weight-bold" onclick="abrirModalForm('cliente')">
+                <span class="display-4 d-block mb-1">🎮</span>
+                Quero ser Upado
+              </button>
+            </div>
+          </div>
+          <div class="text-center border-top border-dark-custom pt-3 mt-2">
+            <span class="text-muted small">Já possui uma conta? </span>
+            <a href="#" class="text-gold font-weight-bold small ml-1" onclick="alternarParaLogin(event)">Fazer Login ➔</a>
+          </div>
+        </div>
+
+        <!-- VISÃO 2: Formulário de Login (Inicialmente Oculto) -->
+        <div id="authStepLogin" class="d-none">
+          <form id="formLogin" onsubmit="realizar_login(event)">
+            <div class="form-group">
+              <label class="small text-muted">Seu E-mail Cadastrado</label>
+              <input type="email" id="loginEmail" class="form-control bg-dark text-light border-dark-custom" placeholder="ex: cliente@email.com" required>
+            </div>
+            
+            <!-- Espaço reservado para SSO no futuro -->
+            <button type="submit" class="btn btn-gold btn-block font-weight-bold mt-4">Entrar na Dashboard 🚀</button>
+          </form>
+
+          <!-- Botão Mock de SSO Google/Discord no Futuro -->
+          <div class="text-center mt-3">
+            <small class="text-muted d-block mb-2">— Ou entre com —</small>
+            <button type="button" class="btn btn-sm btn-dark border-dark-custom btn-block text-muted" disabled>
+              🌐 SSO (Google / Discord - Em Breve)
+            </button>
+          </div>
+
+          <div class="text-center border-top border-dark-custom pt-3 mt-4">
+            <span class="text-muted small">Ainda não tem conta? </span>
+            <a href="#" class="text-gold font-weight-bold small ml-1" onclick="alternarParaCadastro(event)">Criar Conta ➔</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

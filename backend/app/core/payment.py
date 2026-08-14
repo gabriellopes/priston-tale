@@ -6,7 +6,7 @@ class MercadoPagoService:
 
     def criar_pix_custodia(self, valor: float, descricao: str, email_cliente: str):
         # ⚠️ APENAS PARA A PROVA DE FOGO: Força R$ 0,01 na chamada da API
-        # Em produção final, é só trocar por: valor_transacao = float(valor)
+        # Em produção final, deletar a conseguinte linha
         valor = 0.01
 
         payment_data = {

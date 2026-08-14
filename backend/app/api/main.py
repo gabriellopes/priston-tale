@@ -20,7 +20,7 @@ app = FastAPI(title="Priston XP Express - API Escrow Prod")
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
-    allow_credentials=True,
+    allow_credentials=False,  # Altere para False se o origin for "*"
     allow_methods=["*"],
     allow_headers=["*"],
 )
